@@ -15,6 +15,7 @@ public class client {
 	
 	public static void main(String[] args) 
 	{
+	
 	// CRUD Operation calling activity
 		
 	OrderDetails order = new OrderDetails();
@@ -24,8 +25,8 @@ public class client {
 	// CRUD Operation
 	
 	order.setId(100);
-    order.setTotal(100);
-    LocalDate date1 = LocalDate.now();
+        order.setTotal(100);
+        LocalDate date1 = LocalDate.now();
 	Customer customer = null;
 	order.setCustomer(customer);
 	Shop shop = null;
