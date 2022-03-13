@@ -1,0 +1,68 @@
+package com.cg.smms.service;
+
+import com.cg.smms.entities.Item;
+import com.cg.smms.entities.OrderDetails;
+import com.cg.smms.repository.OrderRepositoryimpl;
+
+public class OrderServiceimpl implements IOrderService
+
+
+// Step 1: Establishing Connection between service and repository file
+
+{
+    private OrderRepositoryimpl dao;
+    
+	public OrderServiceimpl() 
+    {
+		dao = new OrderRepositoryimpl();
+	}
+ 
+// Step 2: Service calls to perform CRUD Operation	
+	
+	@Override
+	public OrderDetails addOrder(OrderDetails order) 
+	{
+		dao.beginTransaction();
+		dao.addOrder(order);
+		dao.commitTransaction();
+		return order;
+	}
+
+	
+	
+	@Override
+	public OrderDetails updateOrder(OrderDetails order) 
+	{
+		dao.beginTransaction();
+		dao.updateOrder(order);
+		dao.commitTransaction();
+		return order;
+	}
+
+	
+	
+	@Override
+	public OrderDetails searchOrder(int id) 
+	{
+		OrderDetails order= dao.searchOrder(id);
+		return order;
+	}
+
+	@Override
+	public boolean cancelMall(int id) 
+	{
+		
+		return false;
+	}
+
+	
+	@Override
+	public Item addItem(Item item) 
+	{
+		dao.beginTransaction();
+		dao.addItem(item);
+		dao.commitTransaction();
+		return item;
+	}
+
+}
